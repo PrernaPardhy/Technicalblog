@@ -1,0 +1,21 @@
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Spring MVC Technical blog</title>
+
+</head>
+<header th:replace="layout :: logged-in"></header>
+<h1>All Technical posts </h1>
+<main id="posts">
+    <article th:each="p: ${posts}">
+        <h2 class="title" th:text="${p.title}">post title</h2>
+        <div class="date">
+            <i>Posted On</i>
+            <span th:text="${#dates.format(p.date,'dd-MMM-yy')}">22-MAY-2018</span>
+        </div>
+        <p class="content" th:utext="${p.body}">Post content</p>
+
+    </article>
+</main>
+
+</html>

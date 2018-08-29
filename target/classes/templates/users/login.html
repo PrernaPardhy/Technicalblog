@@ -1,0 +1,25 @@
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+    <title>Spring MVC Technical blog</title>
+
+</head>
+
+<header th:replace="layout :: logged-out"></header>
+<h1>Login</h1>
+<form method="post" th:action="@{/users/login}" th:object="${loginForm}">
+
+    <div><label for="username">Username:</label></div>
+    <input id="username" type="text" name="username"  th:value="${userName}"/>
+
+    <div><label for="password">Password:</label></div>
+    <input id="password" type="password" name="passwordHash" th:value="${passwordHash}" />
+
+
+    <div><input type="submit" value="Login"/></div>
+
+
+
+</form>
+
+</html>
