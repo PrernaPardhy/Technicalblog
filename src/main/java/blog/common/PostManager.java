@@ -32,8 +32,15 @@ public boolean deletePost(final String postTitle){
 }
 
     public Post writeToFile(final Post post){
+        JDBCConnector jdbcConnector=JDBCConnector.getInstance();
 
-       return  (Post)FileOperations.getInstance().writeToFile(Constants.POST_FILE_PREFIX,post, post.getTitle());
+        String query="insert into posts(title,body,data) values (\'"+post.getTitle()+ "\',\'"
+                +  post.getBody()+"\',\'03-03-2017\')";
+
+        jdbcConnector.execute(query);
+        return null;
+
+      // return  (Post)FileOperations.getInstance().writeToFile(Constants.POST_FILE_PREFIX,post, post.getTitle());
 
     }
     public Post getPost(final String prefix) {
